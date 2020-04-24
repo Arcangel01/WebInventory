@@ -1,0 +1,62 @@
+<app-menu></app-menu>
+
+<button routerLink="/facturaListado" class="btn btn-info">Ver Facturas Completas</button>
+
+<div class="container p-4">
+    <form [formGroup]="formFactura" (submit)="onSubmit(formFactura.value)" class="shadow p-5">
+    <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="">Documento de indentidad</label>
+                    <input class="form-control" formControlName="documentO_C"
+                    [(ngModel)]="factura.documentO_C" type="text" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="">Nombre del cliente</label>
+                    <input class="form-control" type="text" formControlName="nombrE_C"
+                    [(ngModel)]="factura.nombrE_C">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="">Apellido del cliente</label>
+                    <input class="form-control" type="text" formControlName="apellidO_C"
+                    [(ngModel)]="factura.apellidO_C" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="">Telefono</label>
+                    <input class="form-control" type="text" formControlName="telefonO_C"
+                    [(ngModel)]="factura.telefonO_C" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="">Producto</label>
+                    <select formControlName="iD_PRODUCTO" class="form-control" [(ngModel)]="factura.iD_PRODUCTO" required>
+                        <option *ngFor="let prod of product" value="{{prod.iD_PRODUCTO}}">{{prod.nombrE_PRODUCTO}}</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="">Cantidad</label>
+                    <input class="form-control" type="text" formControlName="cantidad"
+                    [(ngModel)]="factura.cantidad" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="">Precio</label>
+                    <input class="form-control" type="text" formControlName="precio" placeholder="$"
+                    [(ngModel)]="factura.precio" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="">SubTotal</label>
+                    <input class="form-control" type="text" formControlName="subtotal"
+                    [(ngModel)]="factura.subtotal" value="{{factura.cantidad * factura.precio || 0 | currency: 'USD'}}" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="">Total con IVA</label>
+                    <input class="form-control" formControlName="total" type="text"
+                    [(ngModel)]="factura.total" value="{{(factura.cantidad * factura.precio) * 1.19 || 0 | currency: 'USD'}}">
+                </div>
+        </div>
+        <div class="form-group col-md-4">
+            <button type="submit" class="btn btn-success">Registrar Factura</button>
+        </div>
+</form>
+</div>
+
+
+<app-footer></app-footer>

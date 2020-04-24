@@ -1,0 +1,31 @@
+<app-menu></app-menu>
+
+<div class="container">
+    <div class="container table-responsive-sm table-wrapper-scroll-y my-custom-scrollbar m-4">
+        <table
+         class="table table-bordered table-striped table-sm mb-0 table-warning container p-4">
+            <thead>
+                <th>Codigo</th>
+                <th>Producto</th>
+                <th>Descripcion</th>
+                <th>Imagen</th>
+                <th>Cantidad</th>
+                <th>Precio</th>
+                <th>Categoria</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let product of Product">
+                    <td>{{product.codigO_PRODUCTO}}</td>
+                    <td>{{product.nombrE_PRODUCTO}}</td>
+                    <td>{{product.descripcion}}</td>
+                    <td><img src="https://localhost:44394/api/product/{{product.imageN_PROD}}" height="70" width="100" alt=""></td>
+                    <td>{{product.cantidaD_PRODUCTO}}</td>
+                    <td>{{product.preciO_UNIDAD}}</td>
+                    <td>{{product.categoria.nombrE_CATEGORIA}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<app-footer></app-footer>

@@ -1,0 +1,39 @@
+<app-menu></app-menu>
+
+<div class="container">
+    <div class="container table-responsive-sm table-wrapper-scroll-y my-custom-scrollbar m-4">
+        <table
+         class="table table-bordered table-striped table-sm mb-0 table-warning container p-4">
+            <thead>
+                <th>Codigo Factura</th>
+                <th>CC</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Telefono</th>
+                <th>Fecha</th>
+                <th>Producto</th>
+                <th>Cantidad</th>
+                <th>Precio</th>
+                <th>SubTotal</th>
+                <th>Total</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let factura of Factura">
+                    <td>{{factura.iD_F_VENTA}}</td>
+                    <td>{{factura.documentO_C}}</td>
+                    <td>{{factura.nombrE_C}}</td>
+                    <td>{{factura.apellidO_C}}</td>
+                    <td>{{factura.telefonO_C}}</td>
+                    <td>{{factura.fecha | date}}</td>
+                    <td>{{factura.productos.nombrE_PRODUCTO}}</td>
+                    <td>{{factura.cantidad}}</td>
+                    <td>{{factura.precio | currency: 'USD'}}</td>
+                    <td>{{factura.subtotal | currency: 'USD'}}</td>
+                    <td>{{factura.total | currency: 'USD'}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<app-footer></app-footer>
